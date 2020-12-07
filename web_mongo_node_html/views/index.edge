@@ -1,0 +1,36 @@
+@layout('layouts.app')
+
+
+@section('content')
+<a href="/ingresar"><button type="button" class="btn btn-default" id="nuevo">Ingresar</button></a>
+    <table data-toggle="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Telefono</th>
+          <th>Email</th>
+          <th>Creado En</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @each(usuario in usuarios)
+        <tr>
+          <td>{{usuario._id}}</td>
+          <td>{{usuario.nombre}}</td>
+          <td>{{usuario.telefono}}</td>
+          <th>{{usuario.mail}}</th>
+          <th>{{usuario.creadoEn}}</th>
+          <th>
+            <a href="/usuario/{{usuario._id}}"><button type="button" class="btn btn-default" id="detalle">Detalle</button></a>
+            <a href="/editar/{{usuario._id}}"><button type="button" class="btn btn-default" id="editar">Editar</button></a>
+            <a href="/borrar/{{usuario._id}}"><button type="button" class="btn btn-primary" id="borrar">Borrar</button></a></th>
+@endeach
+      </tbody>
+    </table>
+
+
+
+@endsection
+
